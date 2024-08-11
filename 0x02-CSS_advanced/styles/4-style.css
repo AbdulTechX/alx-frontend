@@ -26,6 +26,6 @@ a {
 .section-tagline {
     color: var(--color-primary);
 }
-section h2 h3{
+section h1, h2, h3, h4, h5, h6{
     font-family: var(--font-family-title);
 }
