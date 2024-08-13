@@ -46,16 +46,16 @@ a {
     color:var(--text-color);
     text-decoration: none;
 }
-a[href] {
+a:link {
     text-decoration: none;
 }
-a[href]:visited {
+a:visited {
     font-style: italic;
 }
-a[href]:hover {
+a:hover {
     text-decoration: underline;
 }
-a[href]:active {
+a:active {
     background-color: var(--color-light-grey);
 }
 .card-category{
