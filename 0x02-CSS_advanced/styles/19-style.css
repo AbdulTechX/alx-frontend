@@ -34,6 +34,7 @@
     --section-body-padding: 0 0 3rem;
     --section-footer-padding: 3rem 0 0;
     --section-footer-align: center;
+    --section-tagline-margin: 0;
     --footer-padding: 5rem 0 1rem;
 
     --nav-item-font-family: var(--font-family-title);
@@ -87,6 +88,21 @@ body {
 .nav .nav-link:hover {
     color: var(--nav-item-link-hover);
 }
+ul.row {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.col-1-3 {
+    width: 33.33%;
+    float: left;
+    padding: 0.5rem;
+}
+.col-1-2 {
+    width: 50%;
+    float: left;
+    padding: 0.5rem;
+}
 a {
     color:var(--text-color);
     text-decoration: none;
@@ -125,6 +141,7 @@ a:active {
     font-family: var(--font-family-title);
     text-transform: var(--section-tagline-transform);
     font-weight: var(--font-weight-bold);
+    margin: var(--section-tagline-margin);
 }
 .section-title {
     font-family: var(--font-family-title);
@@ -144,4 +161,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .footer {
     padding: var(--footer-padding);
+}
+.footer ul {
+    text-align: right;
+}
+.footer .copyright {
+    margin: 0;
+    font-size: var(--font-size-small);
+    color: var(--text-color);
 }
