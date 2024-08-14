@@ -124,7 +124,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: var(--color-light-grey);
+    background-color: var(--color-white);
     width: 0;
     height: 0.2rem;
 }
