@@ -1,0 +1,478 @@
+/* Adding variables for colors, fonts, and layout */
+:root {
+    /* Color variables */
+    --color-primary: #d73953;
+    --color-black: #090909;
+    --color-white: #ffffff;
+    --color-light-grey: #f3f3f3;
+    --color-dark-grey: #353535;
+    --text-color: var(--color-black); /* Default text color */
+
+    /* Font family variables */
+    --font-family-base: "Open Sans", "Helvetica Neue,Helvetica,Arial,sans-serif";
+    --font-family-title: "Raleway", "Helvetica Neue,Helvetica,Arial,sans-serif";
+
+    /* Font size variables */
+    --font-size-small: 1.2rem;
+    --font-size-medium: 1.6rem;
+    --font-size-large: 1.8rem;
+    --font-size-x-large: 2.3rem;
+    --font-size-xx-large: 4.8rem;
+
+    /* Font weight variables */
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    /* Line height variables */
+    --line-height-small: 1.2;
+    --line-height-base: 1.5;
+    --line-height-big: 1.8;
+
+    /* Section styling variables */
+    --section-header-align: center;
+    --section-tagline-transform: uppercase;
+    --section-title-margin: 0;
+    --section-title-color: var(--color-black);
+
+    /* Padding variables */
+    --section-padding: 5rem 0;
+    --section-header-padding: 0 0 3rem;
+    --section-body-padding: 0 0 3rem;
+    --section-footer-padding: 3rem 0 0;
+    --section-footer-align: center;
+    --section-tagline-margin: 0;
+    --footer-padding: 5rem 0 1rem;
+
+    /* Navigation item styling */
+    --nav-item-font-family: var(--font-family-title);
+    --nav-item-font-weight: var(--font-weight-bold);
+    --nav-item-font-size: var(--font-size-medium);
+    --nav-item-letter-spacing: 0.04rem;
+    --nav-item-display: inline-block;
+    --nav-item-margin: 0 0 0 3rem 0;
+    --nav-item-link-hover: var(--color-white);
+
+    /* Button styling */
+    --button-display: inline-block;
+    --button-padding: 1.5rem 3rem;
+    --button-border: 0.2rem solid var(--color-primary);
+    --button-color: var(--color-black);
+    --button-text-decoration: none;
+    --button-font-size: var(--font-size-large);
+    --button-hover-color: var(--color-white);
+    --button-hover-text-decoration: none;
+    --button-hover-background: var(--color-primary);
+
+    /* Header styling */
+    --header-padding: 4rem 0 0;
+    --header-logo-position: relative;
+    --header-logo-link-display: inline-block;
+    --header-logo-link-position: absolute;
+    --header-logo-link-top: -1rem;
+    --header-logo-link-left: 0;
+
+    /* Transition effects */
+    --transition-duration: .3s;
+    --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
+}
+
+/* Universal box-sizing rule */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Clearfix for .row class */
+.row::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* Base styling for the html element */
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* 10px = 1rem */
+}
+
+/* Base styling for the body element */
+body {
+    color: var(--text-color);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base);
+}
+
+/* Float the navbar menu to the right */
+.navbar-menu {
+    float: right;
+}
+
+/* Styling for the nav element */
+.nav {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+/* Styling for individual navigation items */
+.nav-item {
+    font-family: var(--nav-item-font-family);
+    font-weight: var(--nav-item-font-weight);
+    font-size: var(--nav-item-font-size);
+    letter-spacing: var(--nav-item-letter-spacing);
+    display: var(--nav-item-display);
+    margin: var(--nav-item-margin);  
+}
+
+/* Padding for the header */
+.header {
+    padding: var(--header-padding);
+}
+
+/* Positioning the logo inside the header */
+.header-logo {
+    position: var(--header-logo-position);
+}
+
+/* Styling for the logo link inside the header */
+.header-logo a {
+    display: var(--header-logo-link-display);
+    position: var(--header-logo-link-position);
+    top: var(--header-logo-link-top);
+    left: var(--header-logo-link-left);
+}
+
+/* Block display and padding for navigation links */
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+/* Styling for the ::before pseudo-element of nav-link inside nav */
+.nav .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-white);
+    width: 0;
+    height: 0.2rem;
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+/* Hover state styling for the nav-link */
+.nav .nav-item:hover .nav-link::before {
+    background-color: var(--color-primary);
+    width: 100%;
+}
+
+/* Hover state styling for links */
+.nav-link:hover {
+    color: var(--nav-item-link-hover);
+}
+
+/* Hide elements with the visually-hidden class */
+.visually-hidden {
+    display: none;
+}
+
+/* Remove padding and margin for ul.row */
+ul.row {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* Styling for column classes */
+[class^="col-"] {
+    float: left;
+    padding: 0.5rem;
+}
+
+/* Width for .col-1-3 and .col-1-2 */
+.col-1-3 {
+    width: 33.33%;
+}
+.col-1-2 {
+    width: 50%;
+}
+
+/* Styling for anchor elements */
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    font-style: italic;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    background-color: var(--color-light-grey);
+}
+
+/* Padding for the section element */
+.section {
+    padding: var(--section-padding);
+}
+
+/* Background size for the hero section */
+.section-hero {
+    background-size: 90rem auto;
+}
+
+/* Margin for the section title inside the hero section */
+.section-hero .section-title {
+    margin-bottom: 5rem;
+}
+
+/* Padding for the inner content of the hero section */
+.section-hero .section-inner {
+    padding: 10rem 40rem 2rem 0;
+}
+
+/* Styling for the section header */
+.section-header{
+    text-align: var(--section-header-align);
+    padding: var(--section-header-padding);
+}
+
+/* Padding for the section body */
+.section-body{
+    padding: var(--section-body-padding);
+}
+
+/* Padding and alignment for the section footer */
+.section-footer{
+    padding: var(--section-footer-padding);
+    text-align: var(--section-footer-align);
+}
+
+/* Styling for the section tagline */
+.section-tagline {
+    color: var(--color-primary);
+    font-family: var(--font-family-title);
+    text-transform: var(--section-tagline-transform);
+    font-weight: var(--font-weight-bold);
+    margin: var(--section-tagline-margin);
+}
+
+/* Styling for the section title */
+.section-title {
+    font-family: var(--font-family-title);
+    font-size: var(--font-size-xx-large);
+    font-weight: var(--font-weight-bold);
+    margin: var(--section-title-margin);
+    color: var(--section-title-color);
+}
+
+/* Styling for headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-title);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Center the container with a fixed width */
+.container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Remove margin for the card-title inside card-services */
+.card-services .card-title {
+    margin: 0;
+}
+
+/* Styling for anchor elements inside card-services */
+.card-services a {
+    display: block;
+    padding: 2rem;
+    background-color: var(--color-light-grey);
+}
+
+/* Hover state styling for anchors inside card-services */
+.card-services a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+/* Center alignment for the testimonial card */
+.card-testimonial {
+    text-align: center;
+}
+
+/* Styling for avatar images inside the testimonial card */
+.card-testimonial .card-avatar {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+/* Positioning for quotes inside the testimonial card */
+.card-testimonial .card-quote {
+    position: relative;
+}
+
+/* Styling for the ::before pseudo-element inside testimonial quotes */
+.card-testimonial .card-quote::before {
+    content: "\201c"; /* Left double quotation mark */
+    position: absolute;
+    top: -4.5rem;
+    left: -1rem;
+    color: #efeded;
+    font-size: 10rem;
+    z-index: -1;
+}
+
+/* Color for category labels inside cards */
+.card-category{
+    color: var(--color-primary);
+}
+
+/* Positioning and overflow styling for the work card */
+.card-work .card-outer {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Styling for images inside the work card */
+.card-work .card-image img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+/* Positioning for the inner content of the work card */
+.card-work .card-inner {
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    right: -0.1rem;
+    z-index: 1;
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+/* Hover state styling for the work card inner content */
+.card-work:hover .card-inner {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Center alignment and opacity for the work card title */
+.card-work .card-title {
+    text-align: center;
+    margin: 0;
+    opacity: 0;
+    height: 100%;
+    position: relative;
+}
+
+/* Block display and padding for links inside the work card title */
+.card-work .card-title a {
+    display: block;
+    text-decoration: none;
+    padding-top: 45%;
+}
+
+/* Styling for the ::after pseudo-element inside links in the work card title */
+.card-work .card-title a::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    content: "";
+}
+
+/* Hover state styling for the work card title */
+.card-work:hover .card-title {
+    opacity: 1;
+}
+
+/* Hover state styling for images inside the work card */
+.card-work:hover .card-image{
+    transform: scale(1.2);
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+/* Hover state scaling for the work card outer content */
+.card-work:hover .card-outer {
+    transform: scale(0.95);
+}
+
+/* Styling for buttons */
+.button {
+    display: var(--button-display);
+    padding: var(--button-padding);
+    border: var(--button-border);
+    color: var(--button-color);
+    text-decoration: var(--button-text-decoration);
+    font-size: var(--button-font-size);
+}
+
+/* Styling for citation elements inside testimonial quotes */
+.card-testimonial .card-quote cite {
+    display: block;
+    padding-top: 1rem;
+    color: var(--color-primary);
+}
+
+/* Hover state styling for buttons */
+.button:hover {
+    color: var(--button-hover-color);
+    text-decoration: var(--button-hover-text-decoration);
+    background: var(--button-hover-background);
+    transition-duration: var(--transition-duration);
+    transition-property: color, background-color;
+}
+
+/* Padding for the footer */
+.footer {
+    padding: var(--footer-padding);
+}
+
+/* Right alignment for lists inside the footer */
+.footer ul {
+    text-align: right;
+}
+
+/* Styling for the copyright text inside the footer */
+.footer-copyright {
+    margin: 0;
+    font-size: var(--font-size-small);
+    color: var(--text-color);
+}
+
+/* Styling for addresses inside the footer */
+.footer-address {
+    color: var(--text-color);
+}
+
+/* Block display for social links */
+.social-link {
+    display: block;
+}
+
+/* Styling for SVG elements inside social links */
+.social-link > svg {
+    fill: var(--text-color);
+}
+
+/* Dark theme section styling */
+[data-section-theme='dark'] {
+    --text-color: var(--color-white);
+    --section-title-color: var(--color-white);
+    background-color: var(--color-black);
+    --button-color: var(--color-white);
+}
+
